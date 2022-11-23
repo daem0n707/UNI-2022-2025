@@ -1,3 +1,9 @@
+/*MENU OPTION FOR THE FOLLOWING:
+ CREATE AN ARRAY
+ DISPLAY
+ INSERT DELETE
+ EXIT
+ */
 #include<stdio.h>
 int a[10], ele, pos, n;
 void arrayCreate()
