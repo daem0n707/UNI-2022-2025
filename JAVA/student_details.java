@@ -9,7 +9,7 @@ public class student_details{
             
             for(int i=0; i<n; i++)
             {
-                s[i]= new student();
+                s[i] = new student();
                 System.out.print("Enter student USN: ");
                 s[i].USN = sc.next();
                 System.out.print("\nEnter student name: ");
