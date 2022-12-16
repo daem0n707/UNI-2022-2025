@@ -76,3 +76,5 @@ int main()
 	res = pop();
 	printf("\nResult: %d", res);	
 }
+//INPUT: 632-5*1^7+
+//OUTPUT: 18.00

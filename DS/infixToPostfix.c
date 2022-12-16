@@ -83,3 +83,5 @@ void main()
 	postfix[j++] == '\0';
 	printf("\nPostfix Expression: %s\n", postfix);
 }
+// INPUT: ((A+(B-C)*D^E+F)
+// OUTPUT: ABC-D*+E^F+
