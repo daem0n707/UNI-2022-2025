@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
-#include <math.h>
+#include <math.h> //During compilation, use -lm to include math library
 #define MAX 20
 
 float stack[MAX];
