@@ -14,7 +14,6 @@ char pop()
 		char ele =  stack[top--]; // top-- => top = top - 1
 		return ele;
 	}
-
 }
 void push(char a)
 {
