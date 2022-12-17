@@ -119,4 +119,4 @@ class Contract extends Staff{
 }
 
 // Since only one terminal is used for input, Scanner object is never closed [s.close();]
-// For console apps such as this one with multiple classes, use a single Scanner to read from "System.in" i.e, not not close the Scanner Object.
+// For console apps such as this one with multiple classes, use a single Scanner to read from "System.in" i.e, do not close the Scanner Object.
