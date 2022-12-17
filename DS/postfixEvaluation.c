@@ -67,14 +67,14 @@ int main()
 		}
 		else
 		{
-			int op2 = pop();
 			int op1 = pop();
-			res = evaluate(symbol, op1, op2);
+			int op2 = pop();
+			res = evaluate(symbol, op2, op1);
 			push(res);
 		}
 	}
 	res = pop();
-	printf("\nResult: %d", res);	
+	printf("\nResult: %d\n", res);	
 }
 //INPUT: 632-5*1^7+
 //OUTPUT: 18.00
