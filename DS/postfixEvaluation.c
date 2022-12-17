@@ -69,7 +69,7 @@ int main()
 		{
 			int op1 = pop();
 			int op2 = pop();
-			res = evaluate(symbol, op2, op1);
+			res = evaluate(symbol, op2, op1); // Note how op1 and op2 is passed into the function
 			push(res);
 		}
 	}
