@@ -9,7 +9,7 @@ public class prime {
 		System.out.print("Enter a number: ");
 		n = sc.nextInt();
 		
-		if(n == 0 | n == 1)
+		if(n == 0 || n == 1)
 		System.out.format("%d is not a prime number\n", n);
 		else
 		{
