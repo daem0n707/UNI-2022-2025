@@ -10,7 +10,7 @@ public class student_details{
             for(int i=0; i<n; i++)
             {
                 s[i] = new student();
-                System.out.print("Enter student USN: ");
+                System.out.print("\nEnter student USN: ");
                 s[i].USN = sc.next();
                 System.out.print("\nEnter student name: ");
                 s[i].name = sc.next();
@@ -19,7 +19,7 @@ public class student_details{
                 System.out.print("\nEnter phone number: ");
                 s[i].phone = sc.nextLong();
             }
-            System.out.println("USN\t\tNAME\tRoll no\tPHONE\t");
+            System.out.println("USN\t\tNAME\tROLL NO\tPHONE\t");
             for(int i=0; i<n; i++)
             {
                 s[i].display();
