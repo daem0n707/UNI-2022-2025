@@ -61,7 +61,7 @@ class Teaching extends Staff{
 		publications = new String[n]; 
 		for(int i=0; i<n; i++)
 		{
-			System.out.format("\nENTER PUBLICATIONS %d: ", i+1);
+			System.out.format("\nENTER PUBLICATION(S) %d: ", i+1);
 			publications[i] = s.next();
 		}
 	}
