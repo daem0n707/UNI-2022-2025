@@ -64,17 +64,21 @@ int main()
 		if(isdigit(symbol))
 		{
 			push(symbol - '0'); // - '0' converts the variable symbol which is stored as character to integer.
+			// printf("\n[~] Pushed %d to stack", symbol - '0');
 		}
 		else
 		{
 			int op1 = pop();
 			int op2 = pop();
 			res = evaluate(symbol, op2, op1); // Note how op1 and op2 is passed into the function
+			// printf("\n[+] Calculated %d %c %d = %d", op2, symbol, op1, res);
 			push(res);
+			// printf("\n[~] Pushed %d to stack", res);
 		}
 	}
 	res = pop();
 	printf("\nResult: %d\n", res);	
 }
-//INPUT: 632-5*1^7+
+//Uncomment the lines 67, 74, and 76 to print each operation
+//INPUT: 632-5*+1^7+
 //OUTPUT: 18.00
