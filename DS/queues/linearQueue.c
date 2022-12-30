@@ -1,24 +1,22 @@
 #include <stdio.h>
 #define size 10
+
 void insert();
 void delete();
 void display();
 void exit();
 
-int r = -1, f = -1 , q[size];
+int r=-1, f=0, q[size];
 
 int main()
 {
-	int c;
+	int o;
 	while(1)
 	{
-		printf("\n1.Insert function");
-		printf("\n2.Delete function");
-		printf("\n3.Display function");
-		printf("\n4.Exit");
-		printf("\nEnter your choice :");
-		scanf("%d",&c);
-		switch(c)
+		printf("\n[1] INSERT\n[2] DELETE\n[3] DISPLAY\n[4] EXIT");
+		printf("\nSELECT AN OPTION: ");
+		scanf("%d", &o);
+		switch(o)
 		{
 			case 1 : insert();
 				 break;
@@ -35,32 +33,28 @@ void insert()
 	int ele;
 	if(r == size-1)
 	{
-		printf("\nQueue Overflow\n");
-		return ;
+		printf("\n[!] Queue Overflow");
+		return;
 	}
 	else
 	{
-		if(f == -1)
-		{
-			f = 0;
-		}
 		r+=1;
-		printf("\nEnter the element to be inserted : ");
-		scanf("%d",&ele);
+		printf("\nEnter the element to be inserted: ");
+		scanf("%d", &ele);
 		q[r]=ele;
 	}
 }
 
 void delete()
 {
-	if(f == -1||f>r)
+	if(f == -1|| f>r)
 	{
-		printf("\nQueue Underflow\n");
+		printf("\n[!] Queue Underflow");
 		return;
 	}
 	else
 	{
-		printf("\n%d is deleted\n",q[f]);
+		printf("\n%d is deleted\n", q[f]);
 		f+=1;
 	}
 }
@@ -68,17 +62,17 @@ void delete()
 void display()
 {
 	int i;
-	if(f == -1||f>r)
+	if(f == -1|| f>r)
 	{
-		printf("\nQueue is Empty\n");
+		printf("\n[~] Queue is Empty");
 		return;
 	}
 	else
 	{
-		printf("\nQueue is  :");
-		for(i = f ; i<= r;i++)
+		printf("\nQueue is: ");
+		for(i=f; i<=r; i++)
 		{
-			printf("%d ",q[i]);
+			printf("%d ", q[i]);
 		}
 		printf("\n");
 	}	
