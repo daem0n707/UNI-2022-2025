@@ -4,11 +4,11 @@ int tower(int n, char src, char temp, char dest)
 {
 	if(n==1)
 	{
-		printf("Move %d disks from %c to %c\n", n, src, dest);
+		printf("Move disk from %c to %c\n", src, dest);
 		return n;
 	}
 	tower(n-1, src, dest, temp);
-	printf("Move %d disks from %c to %c\n", n, src, dest);
+    tower(1, src, temp, dest);
 	tower(n-1, temp, src, dest);
 }
 
