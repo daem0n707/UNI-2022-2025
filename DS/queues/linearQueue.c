@@ -4,7 +4,6 @@
 void insert();
 void delete();
 void display();
-void exit();
 
 int r=-1, f=0, q[size];
 
