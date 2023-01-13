@@ -10,7 +10,7 @@ struct sll
 typedef struct sll * node;
 node first = NULL;
 
-void insert()
+void insert_front()
 {
 	int n;
 	printf("\nEnter the element to insert: ");
@@ -27,21 +27,28 @@ void insert()
 		new->next = first;
 		first = new;
 	}
+	printf("\n[+] %d has been inserted.", n);
 }
 
-void delete()
+void delete_front() 
 {
-	node temp;
-	temp = first;
-	first = first->next;
-	printf("[+] %d has been deleted.\n", temp->data);
-	free(temp);
+	if(first)
+	{
+		node temp;
+		temp = first;
+		first = first->next;
+		printf("\n[+] %d has been deleted.", temp->data);
+		free(temp);
+	}
+	else
+		printf("\n[!] List is empty.");
 }
 
 void display()
 {
 	node temp;
 	temp = first;
+	printf("\nElements are: ");
 	while(temp != NULL)
 	{
 		printf("%d ", temp->data);
@@ -52,24 +59,24 @@ void display()
 
 void main()
 {
+	int option;
 	while(1)
 	{
-		printf("\n[1] INSERT \n[2] DELETE \n[3] DISPLAY \n[4] EXIT");
+		printf("\n\n[1] PUSH \n[2] POP \n[3] DISPLAY \n[4] EXIT");
 		printf("\nSELECT AN OPTION: ");
-		int option;
 		scanf("%d", &option);
 	
 		switch(option)
 		{
-			case 1: insert();
+			case 1: insert_front();
 					break;
-			case 2: delete();
+			case 2: delete_front();
 					break;
 			case 3: display();
 					break;
 			case 4: printf("\nQUITTING\n");
 					return;
-			default: printf("[!] Invalid option.\n");
+			default: printf("\n[!] Invalid option.");
 		}
 	}
 }
