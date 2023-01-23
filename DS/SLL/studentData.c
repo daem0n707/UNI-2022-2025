@@ -49,24 +49,6 @@ void delete_front()
 		printf("\n[!] List is empty.");
 }
 
-void display()
-{
-	node temp;
-	temp = first;
-    if(first == NULL)
-        printf("\n[!] List is empty");
-    else
-    {
-	    printf("\nElements are: ");
-	    while(temp != NULL)
-	    {
-		    printf("\nNAME: %s\nUSN: %s\nMARKS: %d\n", temp->name, temp->usn, temp->marks);
-		    temp = temp->next;
-	    }
-	    printf("\n");
-    }
-}
-
 void search()
 {
     node temp; 
