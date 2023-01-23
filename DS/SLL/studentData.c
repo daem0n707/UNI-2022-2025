@@ -49,23 +49,20 @@ void delete_front()
 		printf("\n[!] List is empty.");
 }
 
-void search()
+void display()
 {
     node temp; 
     temp = first;
     if(first == NULL)
+	{
         printf("\n[!] List is empty");
-    else
-    {
-        char s[10];
-        printf("\nEnter the student to search: ");
-        int flag = 0;
-        while(temp != NULL)
-        {
-            if(temp->name == s)
-            {
-                printf("\n %s has been found", s);
-                break;
+		return;
+	}
+	while(temp != NULL)
+	{
+		printf("\nNAME: %s USN: %s MARKS: %d", temp->name, temp->usn, temp->marks);
+		temp = temp->next;
+	}
 }
 
 void main()
