@@ -63,6 +63,7 @@ void display()
 		printf("\nNAME: %s USN: %s MARKS: %d", temp->name, temp->usn, temp->marks);
 		temp = temp->next;
 	}
+    free(temp);
 }
 
 void main()
