@@ -53,13 +53,37 @@ void display()
 {
 	node temp;
 	temp = first;
-	printf("\nElements are: ");
-	while(temp != NULL)
-	{
-		printf("\nNAME: %s\nUSN: %s\nMARKS: %d\n", temp->name, temp->usn, temp->marks);
-		temp = temp->next;
-	}
-	printf("\n");
+    if(first == NULL)
+        printf("\n[!] List is empty");
+    else
+    {
+	    printf("\nElements are: ");
+	    while(temp != NULL)
+	    {
+		    printf("\nNAME: %s\nUSN: %s\nMARKS: %d\n", temp->name, temp->usn, temp->marks);
+		    temp = temp->next;
+	    }
+	    printf("\n");
+    }
+}
+
+void search()
+{
+    node temp; 
+    temp = first;
+    if(first == NULL)
+        printf("\n[!] List is empty");
+    else
+    {
+        char s[10];
+        printf("\nEnter the student to search: ");
+        int flag = 0;
+        while(temp != NULL)
+        {
+            if(temp->name == s)
+            {
+                printf("\n %s has been found", s);
+                break;
 }
 
 void main()
