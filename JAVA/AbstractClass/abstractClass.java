@@ -1,4 +1,3 @@
-package javaLab072;
 import java.util.Scanner;
 
 class Teacher implements resume{
