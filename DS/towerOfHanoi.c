@@ -8,7 +8,7 @@ int tower(int n, char src, char temp, char dest)
 		return n;
 	}
 	tower(n-1, src, dest, temp);
-    tower(1, src, temp, dest);
+    	tower(1, src, temp, dest);
 	tower(n-1, temp, src, dest);
 }
 
