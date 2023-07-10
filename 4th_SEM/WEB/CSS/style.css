@@ -1,0 +1,21 @@
+.main {
+    text-align: center;
+}
+.ISE {
+    color: brown;
+    font-size: 50px;
+    font-weight: bold;
+}
+.cmr {
+    color: orange;
+    font-style: bold;
+    font-size: 30px;
+}
+body {
+    background-color: burlywood;
+}
+dl {
+    color: cadetblue;
+    font-size: 30px;
+    font-style: italic;
+}
