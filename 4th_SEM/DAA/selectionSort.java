@@ -1,21 +1,9 @@
-package kanishk;
-import java.util.*;
-
 public class selectionSort {
 
 	public static void main(String[] args) {
 		int n, i, j;
-		Scanner s = new Scanner(System.in);
-		System.out.print("Enter size of the array: ");
-		n = s.nextInt();
-		int arr[] = new int[n];
-		System.out.print("Elements in the array are: ");
-		Random r = new Random();
-		for(i=0; i<n; i++)
-		{
-			arr[i] = r.nextInt(100);
-			System.out.print(arr[i]+" ");
-		}
+		int arr[] = {52, 66, 32, 45, 16};
+		n = arr.length;
 		
 		double start = System.nanoTime();
 		for(i=0; i<n-1; i++) {
@@ -32,12 +20,11 @@ public class selectionSort {
 			}
 		}
 		double end = System.nanoTime();
-		System.out.print("\nSorted Elements: ");
+		
+		System.out.print("Sorted Elements: ");
 		for(i=0; i<n; i++)
 			System.out.print(arr[i]+" ");	
-		System.out.print("\n");
-		System.out.print("Execution taken: " + (end-start));
+		System.out.print("\nExecution taken: " + (end-start));
 	}
 
 }
-
