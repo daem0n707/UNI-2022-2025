@@ -1,8 +1,8 @@
-	AREA MUL, CODE, READONLY
+	AREA MULTIPLY, CODE, READONLY
 ENTRY
 	LDR R0, =ARRAY
 	LDRH R1, [R0]
-	LDRH R2, [R0, #2] //Move 2 bytes to get next array element
+	LDRH R2, [R0, #2] ;Move 2 bytes to get next array element
 	MUL R3, R2, R1
 STOP B STOP
 ARRAY DCW 0x1234, 0x1345
