@@ -1,0 +1,16 @@
+	AREA FACT, CODE, READONLY
+ENTRY
+	MOV R0, #5
+	CMP R0, #0
+	BEQ ANS
+	CMP R0, #1
+	BEQ ANS
+	MOV R1, R0
+UP SUBS R1, R1, #1
+	BEQ STOP ;If result of R1-1 is 0, branch to the label "STOP"
+	MUL R2, R1, R0
+	MOV R0, R2
+	B UP
+ANS MOV R0, #1
+STOP B STOP
+	END
