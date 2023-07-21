@@ -1,10 +1,10 @@
 # PROGRAM EXPLANATION
-- [Multiplying 16-bit Number](##multiplying-16-bit-numbers)
-- [Factorial of a number](##factorial-of-a-number)
-- [Add array of 16-bit numbers](##add-array-of-16-bit-numbers)
-- [Square of a number using Lookup Tables](##square-of-a-number-using-lookup-tables)
-- [Largest or Smallest number in an array](##largest-or-smallest-number-in-an-array)
-- [Sum of first 10 Integers](##sum-of-first-10-integers)
+- [Multiplying 16-bit Number](#multiplying-16-bit-numbers)
+- [Factorial of a number](#factorial-of-a-number)
+- [Add array of 16-bit numbers](#add-array-of-16-bit-numbers)
+- [Square of a number using Lookup Tables](#square-of-a-number-using-lookup-tables)
+- [Largest or Smallest number in an array](#largest-or-smallest-number-in-an-array)
+- [Sum of first 10 Integers](#sum-of-first-10-integers)
 
 ## [Multiplying 16-bit Numbers](./P1.asm)
 ```
