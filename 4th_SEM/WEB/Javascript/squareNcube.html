@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Square and Cube</title>
+    </head>
+
+    <style>
+        table, tr, td, th {
+            background-color: aquamarine;
+            border-collapse: collapse;
+            border: solid black;
+            width: 400px;
+            height: 20px;
+            text-align: center;
+        }
+        table {margin: auto;}
+    </style>
+
+    <script>
+        document.write("<table><tr><th colspan='4'>NUMBERS FROM 0 TO 10 WITH SQUARE AND CUBE</th></tr>")
+        document.write("<tr><th>Number</th><th>Square</th><th>Cube</th><th>Root</th></tr>")
+        for(var n=0; n<=10; n++)
+        {
+            var num = Math.sqrt(n)
+            document.write("<tr><td>"+n+"</td><td>"+n*n+"</td><td>"+n*n*n+"</td><td>"+Math.round(num*100)/100+"</td></tr>")
+        }      
+        document.write("</table")
+    </script>
+</html>

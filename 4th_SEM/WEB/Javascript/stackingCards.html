@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Stacking cards</title>
+    
+    <style>
+        .layer1style {
+            border: solid thick pink;
+            padding: 1em;
+            background-color: khaki;
+            position: absolute;
+            top: 100px;
+            left: 400px;
+            z-index: 1;
+        }
+        .layer2style {
+            border: solid thick black;
+            padding: 1em;
+            background-color: bisque;
+            position: absolute;
+            top: 120px;
+            left: 420px;
+            z-index: 2;
+        }
+        .layer3style {
+            border: solid thick greenyellow;
+            padding: 1em;
+            background-color: rosybrown;
+            position: absolute;
+            top: 140px;
+            left: 440px;
+            z-index: 3;
+        }
+    </style>
+
+    <script type=text/javascript>
+        var topLayer = "layer3"
+        function mover(toTop) {
+            var oldTop = document.getElementById(topLayer).style;
+            var newTop = document.getElementById(toTop).style;
+            oldTop.zIndex=0;
+            newTop.zIndex=25;
+            topLayer = document.getElementById(toTop).id;
+        }
+    </script>
+    </head>
+
+    <body style="text-align: center; background-color: yellowgreen;">
+        <h2 style="text-align: center;">xHTML Document to show stacking of cards</h2>
+        <p class="layer1style" id="layer1" onmouseover=mover("layer1")>1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Voluptas voluptatibus enim temporibus maxime eius neque dolorum libero, voluptatem praesentium, sit totam fuga! 
+            Consectetur officia, ad ea nesciunt accusantium vel voluptates!</p>
+        <p class="layer2style" id="layer2" onmouseover=mover("layer2")>2. Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Voluptas voluptatibus enim temporibus maxime eius neque dolorum libero, voluptatem praesentium, sit totam fuga! 
+            Consectetur officia, ad ea nesciunt accusantium vel voluptates!</p>
+        <p class="layer3style" id="layer3" onmouseover=mover("layer3")>3. Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            Voluptas voluptatibus enim temporibus maxime eius neque dolorum libero, voluptatem praesentium, sit totam fuga! 
+            Consectetur officia, ad ea nesciunt accusantium vel voluptates!</p>
+    </body>
+</html>
