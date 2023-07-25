@@ -5,7 +5,7 @@ def r_to_d(r):
     total = pre_value = 0
     for i in r[::-1]:
         curr_value = roman[i]
-        if curr_value>pre_value:
+        if curr_value>=pre_value:
             total += curr_value
         else:
             total -= curr_value
