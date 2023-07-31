@@ -1,22 +1,25 @@
 import re
-phone = '123-896-76891'
 
-def number(n):
-    p = n.split('-')
-    for i in p:
-        if not i.isdecimal():
-            return False
-    if len(p) != 3:
-        return False
-    elif len(p[0])!=3 or len(p[1])!=3 or len(p[2])!=4:
-        return False
+def isPhoneNumber(numstr):
+    for i in range(len(numstr)):
+        if i==3 or i==7:
+            if numstr[i] != '-':
+                return False
+        else:
+            if numstr[i].isdigit():
+                continue
+            else:
+                return False
     return True
 
-def regex(n):
-    number = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
-    if number.match(n):
-        print("Valid")
-    else:
-        print("Invalid")
-    
-regex(phone)
+def isPhRegex(numstr):
+    ph_pat = re.compile(r"\d{3}-\d{3}-\d{4}$")
+
+    if ph_pat.match(numstr):
+        return True
+    return False
+
+numstr = input("Enter a phone no: ")
+
+print(f"Without regex: {isPhoneNumber(numstr)}")
+print(f"With regex: {isPhRegex(numstr)}")
