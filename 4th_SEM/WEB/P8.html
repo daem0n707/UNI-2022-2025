@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Alert Box</title>
+    <script type="text/javascript">
+        var text = prompt("Enter your input: ")
+        
+        if(!isNaN(text))
+        {
+            var num, last, rev=0
+            num = parseInt(text)
+            while(num!=0)
+            {
+                last = num%10
+                num = parseInt(num/10)
+                rev = rev*10+last
+            }
+            alert("Reverse of "+text+" is "+rev)
+        }
+        else
+        {
+            text = text.toUpperCase()
+            for(var i=0; i<text.length; i++)
+            {
+                var char = text.charAt(i)
+                if(char == 'A' || char == 'E' || char == 'I' || char == 'O' || char == 'U')
+                    break;
+            }
+            if(i<text.length)
+            alert("First vowel: "+char)
+            else
+            alert("Vowel not found")
+        }
+    </script>
+    </head>
+</html>
