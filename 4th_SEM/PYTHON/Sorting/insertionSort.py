@@ -5,7 +5,7 @@ def insertion(a):
         while(j>=0 and a[j]>key):
             a[j+1] = a[j]
             j -= 1
-            a[j+1] = key
+        a[j+1] = key
     return a
 
-insertion([10, 5, 35, 20, 11, 80])
+print(insertion([10, 5, 35, 20, 11, 80]))
