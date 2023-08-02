@@ -1,16 +1,16 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class mergeSort {
     public static void merge(int[] arr) {
-        if (arr.length > 1) {
-            int mid = arr.length / 2;
+        if (arr.length>1) {
+            int mid = arr.length/2;
             int[] left = Arrays.copyOfRange(arr, 0, mid);
             int[] right = Arrays.copyOfRange(arr, mid, arr.length);
             merge(left);
             merge(right);
             int i = 0, j = 0, k = 0;
             while (i < left.length && j < right.length) {
-                if (left[i] < right[j]) {
+                if (left[i]<right[j]) {
                     arr[k] = left[i];
                     i++;
                 } else {
@@ -33,8 +33,26 @@ public class mergeSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {10, 9, 2, 4, 6, 13};
+        int n,i,x;
+        long start, end, diff;
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter size of array: ");
+        n = s.nextInt();
+        int[] arr = new int[n];
+        Random r = new Random();
+        for(i=0;i<n;i++)
+        {
+            x=r.nextInt(1000);
+            arr[i]=x;
+        }
+        System.out.print("\nArray before sorting: ");
+        System.out.print(Arrays.toString(arr));
+        start=System.nanoTime();
         merge(arr);
-        System.out.println(Arrays.toString(arr));
+        end=System.nanoTime();
+        System.out.print("\nSorted array: ");
+        System.out.print(Arrays.toString(arr));
+        diff=end-start;
+        System.out.print("\nTime taken: "+diff);
     }
 }
