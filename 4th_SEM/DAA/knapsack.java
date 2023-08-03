@@ -1,19 +1,19 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Program4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+	System.out.print("Enter no of elements: ");
         int n = sc.nextInt();
         int[] weight = new int[n];
         int[] profit = new int[n];
         for (int i = 0; i < n; i++) {
-            System.out.println("Enter the profit: ");
+            System.out.print("\nEnter the profit: ");
             profit[i] = sc.nextInt();
-            System.out.println("Enter the weight: ");
+            System.out.print("\nEnter the weight: ");
             weight[i] = sc.nextInt();
         }
-        System.out.println("Enter the Knapsack capacity: ");
+        System.out.print("\nEnter the Knapsack capacity: ");
         int bag = sc.nextInt();
         double[] pw = new double[n];
         for (int j = 0; j < n; j++) {
