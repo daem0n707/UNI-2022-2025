@@ -49,9 +49,9 @@ public class Program4 {
                 bag = 0;
             }
         }
-        System.out.println(Arrays.toString(profit));
-        System.out.println(Arrays.toString(weight));
-        System.out.println(Arrays.toString(pw));
-        System.out.println(sum);
+        System.out.println("Profit: "+Arrays.toString(profit));
+        System.out.println("Weights: "+Arrays.toString(weight));
+        System.out.println("Profit/Weight Ratio: "+Arrays.toString(pw));
+        System.out.println("Max profit: "+sum);
     }
 }
