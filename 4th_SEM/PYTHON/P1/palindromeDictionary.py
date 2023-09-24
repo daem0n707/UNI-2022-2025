@@ -1,20 +1,14 @@
 string = input("Enter a number or string: ")
-reverse = ""
-last = -1
-length = len(string)
+
 dictionary = {}
 
-while length!=0:
-    lastLetter = string[last]
-    if lastLetter not in dictionary:
-        dictionary.update({lastLetter : 1})
+for letter in string:
+    if letter not in dictionary:
+        dictionary.update({letter : 1})
     else:
-        dictionary[lastLetter] += 1
-        
-    reverse += lastLetter 
-    last -= 1
-    length -= 1
+        dictionary[letter] += 1
     
+reverse = string[::-1]
 print(f"Reverse: {reverse}")
 if reverse == string:
     print("It is a Palindrome")
