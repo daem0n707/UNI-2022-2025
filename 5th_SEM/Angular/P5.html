@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>Student Details Application</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module("studDetailsApp", []);
+        app.controller("stdDetailsAppCnrtrl", function($scope) {
+            $scope.studData = [];
+ 
+            $scope.generateData = function() {
+                $scope.studData = [];
+                for (var i = 1; i <= $scope.num; i++) {
+                    var stud = {
+                        "SLNO": i,
+                        "NAME": 'Student-' + i,
+                        "CGPA": (Math.random() * 10 + 1).toFixed(2)
+                    };
+                    $scope.studData.push(stud);
+                }
+            };
+        });
+    </script>
+</head>
+ 
+<body ng-app="studDetailsApp">
+    <h1>Student details application</h1>
+    <div ng-controller="stdDetailsAppCnrtrl">
+        Enter the number of students to generate the data:
+        <input type="number" ng-model="num">
+        <button ng-click="generateData()">generate</button>
+        <br />
+        <table border="1" ng-show="studData.length > 0">
+            <tr>
+                <th>SLNO</th>
+                <th>NAME</th>
+                <th>CGPA</th>
+            </tr>
+            <tr ng-repeat="student in studData">
+                <td>{{ student.SLNO }}</td>
+                <td>{{ student.NAME }}</td>
+                <td>{{ student.CGPA }}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+ 
+</html>
