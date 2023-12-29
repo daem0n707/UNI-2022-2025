@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module("myApp",[])
+        app.controller("myCtrl", function($scope){
+            $scope.num = 0;
+            $scope.result = 1;
+ 
+            $scope.factorial = function(){
+                var res=1;
+                if($scope.num===0 || $scope.num===1 ){
+                    $scope.result=1
+                }
+                else{
+                    for(var i=1;i<=$scope.num;i++){
+                        res*=i;
+                    }
+                    $scope.result=res
+                }
+            }
+            $scope.square =function(){
+                $scope.result = $scope.num*$scope.num;
+            }
+        })
+    </script>
+</head>
+<body>
+    <div ng-controller = "myCtrl">
+        <label for="">Enter first number: </label>
+        <input type="number" name="" id="" ng-model="num">
+        <button type="submit"></button>
+        <button ng-click="factorial()">Factorial</button>
+        <button ng-click="square()">Square</button>
+        <br>
+        <b>{{result}}</b>
+    </div>
+</body>
+</html>
