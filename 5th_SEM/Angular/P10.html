@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Management Application</title>
+    <script src="angular.min.js"></script>
+    <script>
+        var app = angular.module("myItem",[]);
+        app.controller("itemCntrl",function($scope){
+            $scope.list=['Pen', 'Pencil', 'Erase', 'Book']
+            $scope.add=function(){
+                if($scope.item)
+                {
+                    if($scope.list.indexOf($scope.item)==-1)
+                    {
+                        $scope.list.push($scope.item)
+                    }
+                    else
+                    {
+                        alert("Item already exists!")
+                    }
+                }
+                else
+                {
+                    alert("Enter an item to add!")
+                }
+            }
+            $scope.remove=function(item){
+                var yes=confirm("Are you sure you want to delete?")
+                if(yes==true)
+                {
+                    var index= $scope.item.indexOf(item)
+                    $scope.list.splice(index,1)
+                }
+            }
+        });
+        </script>
+</head>
+<body ng-app="myItem">
+    <h1>Item Management Application</h1>
+    <div ng-controller="itemCntrl">
+        Enter an item to add:<input type="text" ng-model="item">
+        <button ng-click="add()">Add</button><br><br>
+        <b>List of Items</b>
+        <table border="1">
+            <tr>
+                <th>SLNo</th>
+                <th>item</th>
+                <th>Remove</th>
+            </tr>
+            <tr ng-repeat="item in list">
+                <td>{{$index+1}}</td>
+                <td>{{item}}</td>
+                <td><button ng-click="remove(item)">Remove</button></td>
+            </tr>
+        </table><br>
+        Total number of Items = <b>{{list.length}}</b>
+    </div>
+</body>
+</html>
