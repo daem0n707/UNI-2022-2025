@@ -1,85 +1,52 @@
-set ns [new Simulator]
-set nf [open lan.nam w]
-$ns namtrace-all $nf
-set tf [open lan.tr w]
-$ns trace-all $tf
+import java.util.Scanner;
 
-set n0 [$ns node]
-$n0 color "magenta"
-$n0 label "src1"
+class Queue {
+    int[] q;
+    int f = 0, r = 0;
 
-set n1 [$ns node]
-set n2 [$ns node]
-$n2 color "magenta"
-$n2 label "src2"
+    public Queue(int maxSize) {
+        q = new int[maxSize];
+    }
 
-set n3 [$ns node]
-$n3 color "blue"
-$n3 label "dest2"
+    void insert(int n) {
+        Scanner s = new Scanner(System.in);
+        for(int i = 0; i < n; i++) {
+            System.out.print("Enter " + i + " element: ");
+            int ele = s.nextInt();
+            if (r >= q.length) {
+                System.out.print("\nQueue is full\nLost Packet: " + ele);
+                break;
+            } else {
+                q[r++] = ele;
+            }
+        }
+    }
 
-set n4 [$ns node]
-set n5 [$ns node]
-$n5 color "blue"
-$n5 label“dest1”
-
-$ns make-lan "$n0 $n1 $n2 $n3 $n4" 100Mb 100ms LL Queue/DropTail Mac/802_3
-$ns duplex-link $n4 $n5 1Mb 1ms DropTail
-
-set tcp0 [new Agent/TCP]
-$ns attach-agent $n0 $tcp0
-set ftp0 [new Application/FTP]
-$ftp0 attach-agent $tcp0
-$ftp0 set packetSize_ 500
-$ftp0 set interval_ 0.0001
-
-set sink5 [new Agent/TCPSink]
-$ns attach-agent $n5 $sink5
-$ns connect $tcp0 $sink5
-
-set tcp2 [new Agent/TCP]
-$ns attach-agent $n2 $tcp2
-set ftp2 [new Application/FTP] $ftp2
-attach-agent $tcp2 $ftp2 set
-packetSize_ 600 $ftp2 set
-interval_ 0.001
-
-set sink3 [new Agent/TCPSink] $ns
-attach-agent $n3 $sink3 $ns
-connect $tcp2 $sink3
-
-set file1 [open file1.tr w]
-$tcp0 attach $file1
-set file2 [open file2.tr w]
-$tcp2 attach $file2
-
-$tcp0 trace cwnd_
-$tcp2 trace cwnd_
-
-proc finish { } {
-global ns nf tf
-$ns flush-trace
-close $tf
-close $nf
-exec nam lan.nam &
-exec cat file1.tr > a1
-exec cat file2.tr > a2
-exec xgraph a1 a2
-exit 0
+    void delete() {
+        if (r == 0)
+            System.out.print("\nQueue empty ");
+        else {
+            for (int i = f; i < r; i++) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.print("\nLeaked Packet: " + q[i]);
+                f++;
+            }
+        }
+        System.out.println();
+    }
 }
-$ns at 0.1 "$ftp0 start"
-$ns at 5 "$ftp0 stop"
-$ns at 7 "$ftp0 start"
-$ns at 0.2 "$ftp2 start"
-$ns at 8 "$ftp2 stop"
-$ns at 14 "$ftp0 stop"
-$ns at 10 "$ftp2 start"
-$ns at 15 "$ftp2 stop"
-$ns at 16 "finish"
-$ns run
 
-congestion window trace files i.e. file1.tr and file2.tr
-awk –f lan.awk file1.tr &gt; a1
-awk –f lan.awk file2.tr &gt; a2
-xgraph a1 a2
-
-See trace file contents: vi lan.tr
+public class misc {
+    public static void main(String ar[]) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\nEnter the packets to be sent:");
+        int size = sc.nextInt();
+        Queue q = new Queue(size);
+        q.insert(size);
+        q.delete();
+    }
+}
