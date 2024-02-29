@@ -1,43 +1,48 @@
-<!DOCTYPE html>
 <html>
-<head>
-    <title>Employee Filter</title>
-    <script src="angular.min.js"></script>
-    <script>
-        var app = angular.module("myEmp",[]);
-        app.controller("empCntrl",function($scope){
-            $scope.list=[
-                {'name':'Akanksha Bharti','salary':700000},
-                {'name':'Manik Sinha','salary':650000},
-                {'name':'Asha Sinha','salary':600000},
-                {'name':'Nikita Gupta','salary':750000}
-            ]
-            $scope.clear=function(){
-                $scope.name=''
-                $scope.salary=''
-            }
-        });
-    </script>
-</head>
-<body ng-app="myEmp">
-    <h1>Employee Search Application</h1>
-    <div ng-controller="empCntrl">
-        Search by Name:<input type="text" ng-model="name">
-        Search by Salary:<input type="number" ng-model="salary"><br>
-        <button ng-click="clear()">Clear Filters</button><br><br>
-        <h3>List of Employees</h3>
-        <table border="1">
-            <tr>
-                <th>SlNo</th>
-                <th>Emp Name</th>
-                <th>Salary</th>
-            </tr>
-            <tr ng-repeat="emp in list | filter:{name:name,salary:salary}">
-                <td>{{$index+1}}</td>
-                <td>{{emp.name}}</td>
-                <td>{{emp.salary}}</td>
-            </tr>
-        </table>
-    </div>
-</body>
+    <head>    
+        <title>Program 9</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body ng-app="Prog9">
+        <h1>Search Employees by Name or Salary</h1>
+        <div ng-controller="search">
+            Enter the name:: <input ng-model="name">&emsp;
+            Enter the salary:: <input ng-model="salary">&emsp;
+            <input type="button" value="Clear Filters" ng-click="filters()">
+            <br>
+            <h3>List of Employees:</h3>
+            <table border="1">
+                <tr>
+                    <th>Sn no</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                </tr>
+                <tr ng-repeat="ppl in employee | filter:{N:name,S:salary}">
+                    <td>{{$index+1}}</td>
+                    <td>{{ppl.N}}</td>
+                    <td>{{ppl.S}}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
 </html>
+<script>
+    var a=angular.module("Prog9",[]);
+    a.controller("search",function($scope) 
+    {
+        $scope.employee=[
+            {"N":"Rohan","S":98000},
+            {"N":"Kanishk","S":80000},
+            {"N":"Laasya","S":56000},
+            {"N":"Maitri","S":43000},
+            {"N":"Vinayak","S":21000},
+            {"N":"Prerana","S":76000},
+        ];
+
+    $scope.filters = function()
+    {
+        $scope.name="";
+        $scope.salary="";
+    }
+    });
+</script>
